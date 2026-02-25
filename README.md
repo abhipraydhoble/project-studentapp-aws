@@ -159,7 +159,7 @@ mvn -version
 ### Navigate to Backend Directory
 
 ```bash
-cd studentapp_updated/backend
+cd project-studentapp-aws/Backend
 ```
 
 ---
@@ -205,7 +205,7 @@ mvn clean package -DskipTests
 ### Navigate to Frontend Directory
 
 ```bash
-cd ~/studentapp_updated/Frontend
+cd ../Frontend
 ```
 
 ---
@@ -224,7 +224,7 @@ sudo apt install nodejs npm -y
 Edit file:
 
 ```
-src/api/userService.js
+vim src/api/userService.js
 ```
 
 Example:
@@ -292,7 +292,7 @@ sudo systemctl start apache2
 cd ../Backend/target/
 ````
 ```bash
-java -jar target/student-app.jar
+java -jar student-app.jar
 ```
 ### Access Website
 
