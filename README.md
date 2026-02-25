@@ -24,48 +24,27 @@
 
 
 ---
-
-# Launch EC2 Instance (Ubuntu)
-
-Create an EC2 Ubuntu instance from AWS Console.
-
 ### Security Group Rules
 
 Add inbound rules:
 
-| Type       | Port | Source    |
-| ---------- | ---- | --------- |
-| SSH        | 22   | My IP     |
-| HTTP       | 80   | 0.0.0.0/0 |
-| Custom TCP | 8080 | 0.0.0.0/0 |
+<img width="1471" height="332" alt="image" src="https://github.com/user-attachments/assets/d1a40a3e-69e5-4740-884c-564978b45212" />
 
 ---
+# Launch EC2 Instance (Ubuntu)
 
-### Connect to Instance
-
-```bash
-ssh -i key.pem ubuntu@<EC2-Public-IP>
-```
-
-Update packages:
-
-```bash
-sudo apt update
-```
+<img width="1588" height="286" alt="image" src="https://github.com/user-attachments/assets/021478fe-e41c-4296-9b31-ee84b765adf4" />
 
 ---
 
 # Setup MySQL Database (AWS RDS)
 
 Create a MySQL database using AWS RDS.
+<img width="1512" height="270" alt="image" src="https://github.com/user-attachments/assets/d66bad7d-f0bf-41d3-aef8-cbe78d03414d" />
 
-Go to:
-
-```
-AWS Console → RDS → Create Database
-```
 
 Copy the RDS endpoint.
+<img width="1915" height="696" alt="image" src="https://github.com/user-attachments/assets/86510f79-e91e-49a0-a871-00132cd6da7f" />
 
 Example:
 
@@ -75,7 +54,7 @@ studentdb.xxxxx.ap-south-1.rds.amazonaws.com
 
 ---
 
-### Install MySQL Client on EC2
+### Connect to instance and  Install MySQL Client on EC2
 
 ```bash
 sudo apt update
@@ -136,9 +115,6 @@ exit
 
 ---
 
-### Important Note
-
-Make sure port **3306** is allowed in the RDS Security Group.
 
 ---
 
@@ -209,6 +185,7 @@ spring.datasource.password=admin123
 
 spring.jpa.hibernate.ddl-auto=update
 ```
+<img width="1917" height="405" alt="image" src="https://github.com/user-attachments/assets/e7c9a0ef-e781-4574-9f9d-58a35ef6f7dc" />
 
 ---
 
@@ -220,17 +197,6 @@ mvn clean package -DskipTests
 
 ---
 
-### Run Backend Application
-
-```bash
-java -jar target/student-registration-backend-0.0.1-SNAPSHOT.jar
-```
-
-Test backend:
-
-```
-http://EC2-IP:8080
-```
 
 ---
 
@@ -250,12 +216,6 @@ cd ~/studentapp_updated/Frontend
 sudo apt install nodejs npm -y
 ```
 
-Verify installation:
-
-```bash
-node -v
-npm -v
-```
 
 ---
 
@@ -272,6 +232,7 @@ Example:
 ```js
 const BASE_URL = "http://EC2-IP:8080/api";
 ```
+<img width="1588" height="477" alt="image" src="https://github.com/user-attachments/assets/93a1636c-0b6d-4416-a5a8-b9dfd92c7a2a" />
 
 ---
 
@@ -289,11 +250,6 @@ npm install
 npm start
 ```
 
-Access frontend:
-
-```
-http://EC2-IP:3000
-```
 
 ---
 
@@ -305,7 +261,7 @@ npm run build
 
 ---
 
-# Host Frontend Using Apache (Optional)
+# Host Frontend Using Apache 
 
 ### Install Apache
 
@@ -330,12 +286,20 @@ sudo systemctl start apache2
 ```
 
 ---
-
+### Run Backend Application
+- go to backend dir
+````
+cd ../Backend/target/
+````
+```bash
+java -jar target/student-app.jar
+```
 ### Access Website
 
 ```
 http://EC2-IP
 ```
+<img width="1918" height="970" alt="image" src="https://github.com/user-attachments/assets/6e9ca2e4-c9d4-4650-bf1c-0bf1b80654f2" />
 
 ---
 
